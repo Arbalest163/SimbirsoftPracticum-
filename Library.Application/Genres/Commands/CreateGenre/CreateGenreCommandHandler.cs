@@ -16,8 +16,7 @@ namespace Library.Application.Genres.Commands.CreateGenre
     {
         private readonly ILibraryDbContext _dbContext;
 
-        public CreateGenreCommandHandler(ILibraryDbContext dbContext,
-            IMapper mapper) => _dbContext = dbContext;
+        public CreateGenreCommandHandler(ILibraryDbContext dbContext) => _dbContext = dbContext;
 
         public async Task<Guid> Handle(CreateGenreCommand request, CancellationToken cancellationToken)
         {
