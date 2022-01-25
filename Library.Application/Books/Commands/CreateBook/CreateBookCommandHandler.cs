@@ -25,8 +25,8 @@ namespace Library.Application.Books.Commands.CreateBook
             {
                 Id = Guid.NewGuid(),
                 Name = request.Name,
-                Genres = request.Genres,
-                Authors = request.Authors
+                GenreId = request.GenreId,
+                AuthorId = request.AuthorId
             };
 
 

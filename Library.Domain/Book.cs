@@ -8,9 +8,11 @@ namespace Library.Domain
     /// </summary>
     public class Book : NamedEntity
     {
-        public virtual ICollection<Genre> Genres { get; set; }
+        public Guid GenreId { get; set; }
+        public virtual Genre Genre { get; set; }
         public virtual ICollection<LibraryCard> LibraryCards { get; set; }
-        public virtual ICollection<Author> Authors { get; set; }
+        public Guid AuthorId { get; set; }
+        public virtual Author Author { get; set; }
 
     }
 }

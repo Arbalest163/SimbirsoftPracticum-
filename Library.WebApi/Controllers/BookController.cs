@@ -52,7 +52,7 @@ namespace Library.WebApi.Controllers
         /// <param name="createBookDto"></param>
         /// <returns></returns>
         [HttpPost("CreateBook")]
-        public async Task<ActionResult<Guid>> Create([FromBody] CreateBookDto createBookDto)
+        public async Task<ActionResult<Guid>> Create([FromForm] CreateBookDto createBookDto)
         {
             var command = _mapper.Map<CreateBookCommand>(createBookDto);
 

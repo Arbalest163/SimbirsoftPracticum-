@@ -10,11 +10,14 @@ namespace Library.Application.Books.Queries.GetBookList
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public ICollection<Genre> Genres { get; set; }
-        public ICollection<Author> Authors { get; set; }
+        public string GenreName { get; set; }
+        public string AuthorFullName { get; set; }
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Book, BookDto>();
+            profile.CreateMap<Book, BookDto>()
+                .ForMember(g => g.GenreName, opt => opt.MapFrom(g => g.Genre.Name))
+                .ForMember(a=>a.AuthorFullName, opt => opt.MapFrom(g=> $"{g.Author.Name} {g.Author.LastName} {g.Author.MiddleName}" ));
         }
+
     }
 }

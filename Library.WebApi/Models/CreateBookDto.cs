@@ -16,18 +16,18 @@ namespace Library.WebApi.Models
     {
         [Required]
         public string Name { get; set; }
-        public List<Genre> Genres { get; set; }
-        public List<Author> Authors { get; set; }
+        public Guid GenreId { get; set; }
+        public Guid AuthorId { get; set; }
 
         public void Mapping(Profile profile)
         {
             profile.CreateMap<CreateBookDto, CreateBookCommand>()
                     .ForMember(b => b.Name,
                     opt => opt.MapFrom(bookDto => bookDto.Name))
-                    .ForMember(b => b.Genres,
-                    opt => opt.MapFrom(bookDto => bookDto.Genres))
-                    .ForMember(b => b.Authors,
-                    opt => opt.MapFrom(bookDto => bookDto.Authors));
+                    .ForMember(b => b.GenreId,
+                    opt => opt.MapFrom(bookDto => bookDto.GenreId))
+                    .ForMember(b => b.AuthorId,
+                    opt => opt.MapFrom(bookDto => bookDto.AuthorId));
         }
     }
 }
