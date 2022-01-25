@@ -10,7 +10,7 @@ namespace Library.Application.Persons.Commands.UpdatePerson
             RuleFor(updatePersonCommand =>
                   updatePersonCommand.Id).NotEqual(Guid.Empty);
             RuleFor(updatePersonCommand =>
-                  updatePersonCommand.FirstName).NotEmpty();
+                  updatePersonCommand.Name).NotEmpty();
             RuleFor(updatePersonCommand =>
                 updatePersonCommand.LastName).NotEmpty();
             RuleFor(updatePersonCommand =>

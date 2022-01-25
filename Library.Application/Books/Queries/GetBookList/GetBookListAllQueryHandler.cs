@@ -30,14 +30,18 @@ namespace Library.Application.Books.Queries.GetBookList
             {
                 case null:
                     var bookAll = await _dbContext.Books
+                        .Include(g => g.Genres)
+                        .Include(a => a.Authors)
                         .ProjectTo<BookDto>(_mapper.ConfigurationProvider)
                         .ToListAsync(cancellationToken);
                     return new BookListVm { Books = bookAll };
 
                 case "author":
                     var sortBookAll = await _dbContext.Books
+                        .Include(g => g.Genres)
+                        .Include(a => a.Authors)
                         .ProjectTo<BookDto>(_mapper.ConfigurationProvider)
-                        .OrderBy(a => a.AuthorId)
+                        .OrderBy(a => a.Authors)
                         .ToListAsync(cancellationToken);
                     return new BookListVm { Books = sortBookAll };
 

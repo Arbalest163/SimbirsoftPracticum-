@@ -25,7 +25,7 @@ namespace Library.Application.Persons.Commands.UpdatePerson
                 throw new NotFoundException(nameof(Person), request.Id);
             }
 
-            entity.FirstName = request.FirstName;
+            entity.Name = request.Name;
             entity.LastName = request.LastName;
             entity.MiddleName = request.MiddleName;
             entity.Birthday = request.Birthday;

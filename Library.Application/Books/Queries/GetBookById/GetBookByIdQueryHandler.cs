@@ -26,8 +26,9 @@ namespace Library.Application.Books.Queries.GetBookById
             CancellationToken cancellationToken)
         {
             var entity = await _dbContext.Books
-                    .FirstOrDefaultAsync(b =>
-                    b.Id == request.Id, cancellationToken);
+                .Include(g=>g.Genres)
+                .Include(a=>a.Authors)
+                .SingleOrDefaultAsync(b => b.Id == request.Id, cancellationToken);
 
             if (entity == null)
             {

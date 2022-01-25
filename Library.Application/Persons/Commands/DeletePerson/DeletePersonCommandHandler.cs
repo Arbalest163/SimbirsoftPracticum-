@@ -8,6 +8,7 @@ using MediatR;
 using Library.Application.Interfaces;
 using Library.Application.Common.Exceptions;
 using Library.Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace Library.Application.Persons.Commands.DeletePerson
 {
@@ -21,7 +22,7 @@ namespace Library.Application.Persons.Commands.DeletePerson
         }
         public async Task<Unit> Handle(DeletePersonCommand request, CancellationToken cancellationToken)
         {
-            var entity = await _dbContext.Persons.FindAsync( new object[] { request.Id}, cancellationToken);
+            var entity = await _dbContext.Persons.SingleOrDefaultAsync(p=>p.Id == request.Id, cancellationToken);
 
             if (entity == null)
             {

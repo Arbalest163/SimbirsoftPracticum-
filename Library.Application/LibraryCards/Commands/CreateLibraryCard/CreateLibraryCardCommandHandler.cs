@@ -22,8 +22,7 @@ namespace Library.Application.LibraryCards.Commands.CreateLibraryCard
         {
             var libraryCard = new LibraryCard
             {
-                Id = Guid.NewGuid(),
-                PersonId = request.PersonId,
+                Persons = request.PersonId,
                 BookId = request.BookId,
                 TakenDate = DateTimeOffset.UtcNow
             };

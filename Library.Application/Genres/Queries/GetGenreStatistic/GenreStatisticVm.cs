@@ -13,10 +13,10 @@ namespace Library.Application.Genres.Queries.GetGenreStatistic
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Genre, GenreStatisticVm>()
-                    .ForMember(gVm => gVm.Name,
+                .ForMember(gVm => gVm.Name,
                     opt => opt.MapFrom(g => g.Name))
-                    .ForMember(gVm => gVm.CountBook,
-                    opt => opt.MapFrom(g => g.BookGenre.Count));
+                .ForMember(gVm => gVm.CountBook,
+                    opt => opt.MapFrom(g => g.Books.Count));
         }
     }
 }

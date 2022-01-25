@@ -26,14 +26,13 @@ namespace Library.Application.Genres.Queries.GetGenreStatistic
             CancellationToken cancellationToken)
         {
             var entity = await _dbContext.Genres
-                    .FirstOrDefaultAsync(g =>
-                    g.Id == request.Id, cancellationToken);
+                .Include(b => b.Books)
+                .SingleOrDefaultAsync(g => g.Id == request.Id, cancellationToken);
 
             if (entity == null)
             {
                 throw new NotFoundException(nameof(Genre), request.Id);
             }
-
             return _mapper.Map<GenreStatisticVm>(entity);
         }
     }

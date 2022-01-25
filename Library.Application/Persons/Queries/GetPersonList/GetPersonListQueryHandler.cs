@@ -28,7 +28,7 @@ namespace Library.Application.Persons.Queries.GetPersonList
             if (lowerRequest != null)
             {
                 var personQuery = await _dbContext.Persons
-                        .Where(p => p.FirstName.ToLower().Contains(lowerRequest) ||
+                        .Where(p => p.Name.ToLower().Contains(lowerRequest) ||
                                 p.LastName.ToLower().Contains(lowerRequest) ||
                                 p.MiddleName.ToLower().Contains(lowerRequest))
                         .ProjectTo<PersonDto>(_mapper.ConfigurationProvider)

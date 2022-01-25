@@ -2,6 +2,7 @@
 using Library.Application.Interfaces;
 using Library.Domain;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace Library.Application.Books.Commands.DeleteBook
         }
         public async Task<Unit> Handle(DeleteBookCommand request, CancellationToken cancellationToken)
         {
-            var entity = await _dbContext.Books.FindAsync(new object[] { request.Id }, cancellationToken);
+            var entity = await _dbContext.Books.SingleOrDefaultAsync(i=>i.Id == request.Id, cancellationToken);
 
             if (entity == null)
             {

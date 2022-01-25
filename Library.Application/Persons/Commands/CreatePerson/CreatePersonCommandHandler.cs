@@ -21,7 +21,7 @@ namespace Library.Application.Persons.Commands.CreatePerson
             var person = new Person
             {
                 Id = Guid.NewGuid(),
-                FirstName = request.FirstName,
+                Name = request.Name,
                 LastName = request.LastName,
                 MiddleName = request.MiddleName,
                 Birthday = request.Birthday

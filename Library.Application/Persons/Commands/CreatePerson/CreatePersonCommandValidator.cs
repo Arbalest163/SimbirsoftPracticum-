@@ -7,7 +7,7 @@ namespace Library.Application.Persons.Commands.CreatePerson
         public CreatePersonCommandValidator()
         {
             RuleFor(createPersonCommand =>
-                createPersonCommand.FirstName).NotEmpty();
+                createPersonCommand.Name).NotEmpty();
             RuleFor(createPersonCommand =>
                 createPersonCommand.LastName).NotEmpty();
             RuleFor(createPersonCommand =>

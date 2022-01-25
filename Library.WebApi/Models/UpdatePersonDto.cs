@@ -15,7 +15,7 @@ namespace Library.WebApi.Models
         [Required]
         public Guid Id { get; set; }
         [Required]
-        public string FirstName { get; set; }
+        public string Name { get; set; }
         [Required]
         public string LastName { get; set; }
         public string MiddleName { get; set; }
@@ -24,8 +24,8 @@ namespace Library.WebApi.Models
         public void Mapping(Profile profile)
         {
             profile.CreateMap<UpdatePersonDto, UpdatePersonCommand>()
-                    .ForMember(personCommand => personCommand.FirstName,
-                    opt => opt.MapFrom(personDto => personDto.FirstName))
+                    .ForMember(personCommand => personCommand.Name,
+                    opt => opt.MapFrom(personDto => personDto.Name))
                     .ForMember(personCommand => personCommand.LastName,
                     opt => opt.MapFrom(personDto => personDto.LastName))
                     .ForMember(personCommand => personCommand.MiddleName,

@@ -24,19 +24,11 @@ namespace Library.Application.Books.Commands.CreateBook
             var book = new Book
             {
                 Id = Guid.NewGuid(),
-                Title = request.Title,
-                AuthorId = request.AuthorId,
+                Name = request.Name,
+                Genres = request.Genres,
+                Authors = request.Authors
             };
 
-            foreach (var item in request.GenresId)
-            {
-                var g = new BookGenre
-                {
-                    BookId = book.Id,
-                    GenreId = item
-                };
-                book.BookGenre.Add(g);
-            }
 
             await _dbContext.Books.AddAsync(book, cancellationToken);
             await _dbContext.SaveChangesAsync(cancellationToken);
