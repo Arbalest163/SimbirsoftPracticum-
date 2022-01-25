@@ -9,9 +9,6 @@ namespace Library.Persistence.EntityTypeConfigurations
         public void Configure(EntityTypeBuilder<Author> builder)
         {
             builder.ToTable("author");
-            builder.HasMany(b => b.Books)
-                .WithOne(a=>a.Author)
-                .HasForeignKey(k => k.AuthorId);
         }
     }
 }

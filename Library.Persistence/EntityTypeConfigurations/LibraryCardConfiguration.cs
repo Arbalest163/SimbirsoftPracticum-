@@ -14,9 +14,8 @@ namespace Library.Persistence.EntityTypeConfigurations
         public void Configure(EntityTypeBuilder<LibraryCard> builder)
         {
             builder.ToTable("library_card");
-            builder.HasKey(l => l.Id);
-            builder.HasIndex(l => l.Id).IsUnique();
-            builder.HasIndex(l => l.BookId).IsUnique();
+            builder.HasKey(l => new { l.Persons, l.Books});
+            builder.HasIndex(l => new { l.Persons, l.Books });
             
         }
     }

@@ -8,9 +8,7 @@ namespace Library.Domain
     /// </summary>
     public class Person : Human
     {
-        public Person() => LibraryCards = new List<LibraryCard>();
-        
         public DateTime Birthday { get; set; }
-        public ICollection<LibraryCard> LibraryCards { get; set; }
+        public virtual ICollection<LibraryCard> LibraryCards { get; set; }
     }
 }

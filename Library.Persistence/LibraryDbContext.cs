@@ -12,7 +12,6 @@ namespace Library.Persistence
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<LibraryCard> LibraryCards { get; set; }
-        public DbSet<BookGenre> BookGenres { get; set; }
         public LibraryDbContext(DbContextOptions<LibraryDbContext> options)
             : base(options) { }
 
@@ -23,7 +22,6 @@ namespace Library.Persistence
             builder.ApplyConfiguration(new GenreConfiguration());
             builder.ApplyConfiguration(new AuthorConfiguration());
             builder.ApplyConfiguration(new LibraryCardConfiguration());
-            builder.ApplyConfiguration(new BookGenreConfiguration());
             base.OnModelCreating(builder);
         }
     }

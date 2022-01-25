@@ -11,11 +11,8 @@ namespace Library.Domain
     /// </summary>
     public class LibraryCard
     {
-        public Guid Id { get; set; }
-        public Guid PersonId { get; set; }
-        public Person Person { get; set; }
-        public Guid BookId { get; set; }
-        public Book Book { get; set; }
+        public virtual ICollection<Person> Persons { get; set; }
+        public virtual ICollection<Book> Books { get; set; }
         public DateTimeOffset TakenDate { get; set; }
     }
 }

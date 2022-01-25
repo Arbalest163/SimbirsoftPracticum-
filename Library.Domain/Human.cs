@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 namespace Library.Domain
 {
     /// <summary>
-    /// 2.2 Сущность из базы данных
+    /// Базовый класс для сущностей с ФИО
     /// </summary>
-    public abstract class Human
+    public abstract class Human : NamedEntity
     {
-        public Guid Id { get; set; }
-        public string FirstName { get; set; }
+       
         public string LastName { get; set; }
         public string MiddleName { get; set; }
     }

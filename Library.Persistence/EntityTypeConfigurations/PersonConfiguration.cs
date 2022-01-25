@@ -8,7 +8,10 @@ namespace Library.Persistence.EntityTypeConfigurations
     {
         public void Configure(EntityTypeBuilder<Person> builder)
         {
-            builder.ToTable("person");
+            builder.ToTable("persons");
+            builder.Property(n => n.Name).IsRequired();
+            builder.Property(n => n.LastName).IsRequired();
+            builder.Property(n => n.Birthday).IsRequired();
         }
 
     }

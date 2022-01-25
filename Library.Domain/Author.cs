@@ -8,8 +8,6 @@ namespace Library.Domain
     /// </summary>
     public class Author : Human
     {
-        public Author() => Books = new List<Book>();
-        
-        public ICollection<Book> Books { get; set; }
+        public virtual ICollection<Book> Books { get; set; }
     }
 }

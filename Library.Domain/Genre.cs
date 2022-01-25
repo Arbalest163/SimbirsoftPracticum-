@@ -6,12 +6,8 @@ namespace Library.Domain
     /// <summary>
     /// 2.2 Сущность из базы данных
     /// </summary>
-    public class Genre
+    public class Genre : NamedEntity
     {
-        public Genre() => BookGenre = new List<BookGenre>();
-
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public ICollection<BookGenre> BookGenre { get; set; }
+        public virtual ICollection<Book> Books { get; set; }
     }
 }

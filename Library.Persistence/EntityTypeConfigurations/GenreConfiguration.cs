@@ -9,8 +9,6 @@ namespace Library.Persistence.EntityTypeConfigurations
         public void Configure(EntityTypeBuilder<Genre> builder)
         {
             builder.ToTable("genre");
-            builder.HasKey(g => g.Id);
-            builder.HasIndex(g => g.Id).IsUnique();
             builder.HasIndex(g => g.Name).IsUnique();
         }
     }
