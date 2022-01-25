@@ -8,15 +8,15 @@ namespace Library.WebApi.Models
     public class CreateAuthorDto : IMapWith<CreateAuthorCommand>
     {
         [Required]
-        public string FirstName { get; set; }
+        public string Name { get; set; }
         [Required]
         public string LastName { get; set; }
         public string MiddleName { get; set; }
         public void Mapping(Profile profile)
         {
             profile.CreateMap<CreateAuthorDto, CreateAuthorCommand>()
-                    .ForMember(aC => aC.FirstName,
-                    opt => opt.MapFrom(aDto => aDto.FirstName))
+                    .ForMember(aC => aC.Name,
+                    opt => opt.MapFrom(aDto => aDto.Name))
                     .ForMember(aC => aC.LastName,
                     opt => opt.MapFrom(aDto => aDto.LastName))
                     .ForMember(aC => aC.MiddleName,

@@ -24,7 +24,7 @@ namespace Library.Application.Authors.Commands.CreateAuthor
         {
             var author = new Author
             {
-                FirstName = request.FirstName,
+                Name = request.Name,
                 LastName = request.LastName,
                 MiddleName = request.MiddleName
             };

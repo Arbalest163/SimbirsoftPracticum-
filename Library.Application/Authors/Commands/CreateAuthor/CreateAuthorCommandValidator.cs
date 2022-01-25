@@ -11,7 +11,7 @@ namespace Library.Application.Authors.Commands.CreateAuthor
     {
         public CreateAuthorCommandValidator()
         {
-            RuleFor(a => a.FirstName).NotEmpty();
+            RuleFor(a => a.Name).NotEmpty();
             RuleFor(a => a.LastName).NotEmpty();
         }
     }
